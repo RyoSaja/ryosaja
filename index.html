@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ESP8266 MQTT Control</title>
+  <script src="paho/mqttws31.min.js"></script>
+  <script src="paho/demo.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f3;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      background: #0077cc;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      width: 250px;
+      margin: 20px auto;
+    }
+
+    .relay-container {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+
+    .relay-container button {
+      width: 90px;
+      height: 40px;
+      margin: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      transition: 0.2s;
+    }
+
+    .relay-container button:hover {
+      transform: scale(1.05);
+    }
+
+    .sensor-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 280px;
+      margin: 20px auto;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      font-size: 18px;
+      text-align: left;
+    }
+
+    .sensor-box span {
+      font-weight: bold;
+      color: #0077cc;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h2>Relay Control</h2>
+  <div class="relay-container">
+    <button onclick="switchRelay(1,'on')">R1 ON</button>
+    <button onclick="switchRelay(1,'off')">R1 OFF</button>
+
+    <button onclick="switchRelay(2,'on')">R2 ON</button>
+    <button onclick="switchRelay(2,'off')">R2 OFF</button>
+
+    <button onclick="switchRelay(3,'on')">R3 ON</button>
+    <button onclick="switchRelay(3,'off')">R3 OFF</button>
+
+    <button onclick="switchRelay(4,'on')">R4 ON</button>
+    <button onclick="switchRelay(4,'off')">R4 OFF</button>
+  </div>
+
+  <h2>Sensor Data</h2>
+  <div class="sensor-box">
+    Temp : <span id="temperature">-</span> °C<br><br>
+    Humidity : <span id="humidity">-</span> %<br><br>
+    IR Sensor : <span id="infrared">-</span><br><br>
+    Current : <span id="current">-</span> V
+  </div>
+
+</body>
+</html>
